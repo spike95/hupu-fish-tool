@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "虎扑摸鱼插件",
+    "version": "0.0.1",
+    "description": "浏览虎扑阻止图片请求~",
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset_1",
+                "enabled": true,
+                "path": "rules/rules_1.json"
+            }
+        ]
+    },
+    "permissions": [
+        "declarativeNetRequest",
+        "declarativeNetRequestFeedback"
+    ],
+    
+    "host_permissions": [
+        "https://bbs.hupu.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+          "js": ["scripts/content.js"],
+          "matches": [
+            "https://bbs.hupu.com/*"
+          ]
+        }
+    ],
+    "icons": {
+        "16": "images/icon.png",
+        "32": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+    }
+}
